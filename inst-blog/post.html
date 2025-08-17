@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Instagram CRUD App</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <style>
+    body { font-family: Arial; max-width: 600px; margin: 30px auto; }
+    .card { border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; }
+    img { max-width: 100%; }
+    input, textarea { width: 100%; margin: 5px 0; padding: 8px; }
+    button { padding: 8px 12px; margin-top: 5px; }
+  </style>
+</head>
+<body>
+
+  <h2>📸 Instagram CRUD</h2>
+  <div>
+    <input type="text" id="username" placeholder="Username" />
+    <input type="text" id="imageUrl" placeholder="Image URL" />
+    <textarea id="caption" placeholder="Caption"></textarea>
+    <button onclick="createPost()">Post</button>
+  </div>
+
+  <hr/>
+
+  <div id="posts"></div>
+
+  <script>
+    const baseURL = 'http://localhost:3000/posts';
+
+    // Fetch posts
+    function fetchPosts() {
+      axios.get(baseURL)
+        .then(res => {
+          const posts = res.data;
+          const postsContainer = document.getElementById('posts');
+          postsContainer.innerHTML = '';
+
+          posts.forEach(post => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+              <h3>@${post.username}</h3>
+              <img src="${post.imageUrl}" />
+              <p>${post.caption}</p>
+              <button onclick="deletePost(${post.id})">Delete</button>
+              <button onclick="editPost(${post.id}, '${post.username}', '${post.imageUrl}', '${post.caption}')">Edit</button>
+            `;
+            postsContainer.appendChild(card);
+          });
+        });
+    }
+
+  
+    // Create a post
+    function createPost() {
+      const username = document.getElementById('username').value;
+      const imageUrl = document.getElementById('imageUrl').value;
+      const caption = document.getElementById('caption').value;
+
+      axios.post(baseURL, { username, imageUrl, caption })
+        .then(() => {
+          fetchPosts();
+          document.getElementById('username').value = '';
+          document.getElementById('imageUrl').value = '';
+          document.getElementById('caption').value = '';
+        });
+    }
+
+    // Delete post
+    function deletePost(id) {
+    axios.delete(`${baseURL}/${id}`).then(() => fetchPosts());
+
+    }
+
+    // Edit post
+    function editPost(id, username, imageUrl, caption) {
+      const newCaption = prompt("Edit your caption:", caption);
+      if (newCaption !== null) {
+      axios.put(`${baseURL}/${id}`, { username, imageUrl, caption: newCaption })
+
+          .then(() => fetchPosts());
+      }
+    }
+
+    fetchPosts();
+  </script>
+</body>
+</html>

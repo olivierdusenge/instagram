@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+        body {
+          
+            background-color: #fafafa;
+            color: #262626;
+        }
+
+        .instagram-container {
+            max-width: 975px;
+            margin: 0 auto;
+            min-height: 100vh;   
+        }
+
+        .profile-header {
+          display: flex;     
+          padding: 40px 150px;
+        }
+
+        .profile-info {
+            display: flex;
+            margin-bottom: 44px;
+        }
+
+        .profile-picture-container {
+            margin-right: 70px;
+            flex-shrink: 0;
+        }
+
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            padding: 2px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-picture img {
+            width: 142px;
+            height: 142px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid white;
+        }
+
+        .profile-details {
+            flex: 1;
+            padding-top: 12px;
+        }
+
+        .username-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .username {
+            font-size: 28px;
+            font-weight: 300;
+            line-height: 32px;
+            margin-right: 20px;
+            color: #262626;
+        }
+
+        .profile-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .profile-btn {
+            background: #efefef;
+            border: 1px solid #dbdbdb;
+            border-radius: 4px;
+            color: #262626;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 18px;
+            padding: 9px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s;
+        }
+
+        .profile-btn:hover {
+            background: #e0e0e0;
+        }
+
+        .stats-section {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .stat-item {
+            margin-right: 40px;
+            font-size: 16px;
+            line-height: 24px;
+        }
+
+        .stat-number {
+            font-weight: 600;
+            color: #262626;
+        }
+
+        .stat-label {
+            color: #262626;
+            font-weight: 400;
+        }
+
+        .profile-bio {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 24px;
+            color: #262626;
+        }
+
+       

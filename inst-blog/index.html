@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instagram</title>
+<!-- LINKS -->
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+<link rel="icon" href="loog.jpeg" type="image/jpeg">
+</head>
+<body>
+<!-- CONTAINER -->
+<div class="container">
+<div class="sidebar">
+<div class="logo">
+<p>Instagram</p>
+</div>
+<nav class="navbar-menu">
+<ul>
+<li>
+<a href="#"><i class="fa-solid fa-house"></i>Home</a>
+</li>
+
+<li>
+<a href="#"><i class="fa-solid fa-magnifying-glass"></i>Search</a>
+</li>
+
+<li>
+<a href="#"><i class="fa-solid fa-compass"></i>Explore</a>
+</li>
+
+<li>
+<a href="#"><i class="fa-solid fa-clapperboard"></i>Reels</a>
+</li>
+
+<li>
+<a href="#"><i class="fa-brands fa-facebook-messenger"></i>Messages</a>
+</li>
+
+<li>
+<a href="#"><i class="fa-regular fa-heart"></i>Notification</a>
+</li>
+
+<li id="create">
+<a href="#"><i class="fa-regular fa-square-plus"></i>Create</a>
+</li>
+
+<li>
+<a href="#"><i class="fa-solid fa-square-poll-vertical"></i>Dashboard</a>
+</li>
+
+<li>
+<a href="#"><i class="fa-solid fa-user"></i>Profile</a>
+</li>
+
+
+<li id="more-btn">
+<a href="#"><i class="fa-solid fa-bars" ></i>More</a>
+</li>
+</ul>
+
+</nav>
+<!-- Switch-account-container-->
+<div class="switch-accounts-container " id="switch-accounts-container">
+<div class="menu-item"><i class="fa-solid fa-gear"></i>Settings</div>
+<div class="menu-item"><i class="fa-solid fa-chart-simple"></i>Your activity</div>
+<div class="menu-item"><i class="fa-regular fa-bookmark"></i>Saved</div>
+<div class="menu-item"><i class="fa-regular fa-moon"></i>Switch appearance</div>
+<div class="menu-item"><i class="fa-solid fa-circle-exclamation"></i>Report a problem</div>
+
+<div class="divider"></div> <!-- Top border line -->
+<div class="menu-item"><i class="fa-brands fa-threads"></i>Threads</div>
+<div class="divider"></div> <!-- Bottom border line -->
+
+<div class="menu-item">Switch accounts</div>
+<div class="menu-item" id="logout"><a href="/auth/login.html">logout</a></div>
+</div>
+<!-- switch aperance-card -->
+
+<div class="switch-appearance-card">
+
+</div>
+
+</div>
+<!-- create-Post -->
+ <div class="create-post-card" id="create-post">
+    <ul>
+      <li class="create-post-btn" id="openModal">
+        <span>Post</span>
+        <i class="fa-regular fa-images"></i>
+        
+      <li>
+       <span>Live Video</span>
+       <i class="fas fa-video"></i> 
+      </li>
+      <li>
+        <span>Ad</span>
+        <i class="fa-solid fa-coins"></i>
+      </li>
+      <li>
+        <span>AI</span>
+        <i class="fa-regular fa-user"></i>
+      </li>
+    </ul>
+ </div>
+<!-- MAIN -->
+<main class="main-container">
+<div class="stories">
+<div class="story">
+<img src="../assets/images/profile1.jpg">
+<span id="name">Kelvin D</span>
+</div>
+
+<div class="story">
+<img src="../assets/images/profile2.jpg">
+<span id="name">vinisius</span>
+</div>
+
+
+<div class="story">
+<img src="../assets/images/profile3.jpg">
+<span id="name">Vedaste</span>
+</div>
+
+
+<div class="story">
+<img src="../assets/images/profile4.jpg">
+<span id="name">Lil john</span>
+</div>
+
+
+<div class="story">
+<img src="../assets/images/profile5.jpg">
+<span id="name">olivier</span>
+</div>
+
+<div class="story">
+<img src="../assets/images/profile6.jpg">
+<span id="name">emmy</span>
+</div>
+</div>
+<div class="post" id="post">
+<div class="post-images">
+<div class="post-header">
+<img src="../assets/images/post-header6.jpeg">
+<span class="username">Realmadride</span>
+<p class="post-time">. 2h</p>
+<i class="fa-solid fa-ellipsis"></i>
+</div>
+<div class="post-img">
+<img src="../assets/images/boby.webp" alt="">
+</div>
+<div class="post-actions">
+<div class="post-comment">
+<i class="fa-regular fa-heart"></i>
+<i class="fa-regular fa-comment"></i>
+<i class="fa-regular fa-paper-plane"></i>
+<i class="fa-regular fa-bookmark" id="bookmark"></i>
+</div>
+</div>
+<div class="total-like">
+<a href="#" id="likes">211,667</a><p>likes</p>
+</div>
+<div class="description">
+<P><a href="#">Realmadride</a> 
+
+🤔 How do you say semi-final in YOUR language?
+🗣️ ¿Cómo se dice semifinal en TU idioma?
+<a href="#" id="tag">#FIFACWC</a>
+</P>
+</div>
+<div class="comment-views">
+<a href="#" id="comm-views">View all 1,249 comments</a>
+</div>
+<div class="add-comments">
+<input type="text" placeholder="Add comment">
+<i class="fa-regular fa-face-smile"></i>
+</div>
+</div>
+</div>
+
+
+<div class="post">
+<div class="post-images">
+<div class="post-header">
+
+<!--create new-post-->
+  <!-- Modal -->
+<div class="select-post" id="select-post">
+  <form class="post-form">
+    <h2>Select Post</h2>
+
+    <div class="form-group">
+      <label for="media">Select Photo or Video:</label>
+      <input type="file" id="media" accept="image/*,video/*" style="display:none;" />
+      <input type="text" id="fileURL" placeholder="Selected file URL..." readonly />
+      <button type="button" onclick="document.getElementById('media').click()">Choose File</button>
+
+      <!-- Optional: preview image -->
+      <img id="previewImage" style="margin-top:10px; max-width:100%; display:none;" />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Add Description:</label>
+      <textarea id="description" maxlength="500" placeholder="Write your post description..."></textarea>
+    </div>
+
+    <div class="form-group">
+      <button type="submit">Create Post</button>
+    </div>
+  </form>
+</div>
+
+  
+</main>
+
+<div class="right-profile">
+<div class="profile-header">
+<a href="profile.html"><img src="../assets/images/profile2.jpg" class="profile-photo"></a>
+<div class="profile-info">
+<h3 class="username">jean claude</h3>
+<p>olivier_Gram</p>
+</div>
+<div class="switch-account">
+<a href="#">switch</a>
+</div>
+</div>
+<div class="right-suggest-header">
+<p>Suggested for you</p>
+<span><a href="#">See All</a></span>
+</div>
+<div class="right-suggest-profile">
+<div class="user">
+<img src="../assets/images/post-header2.jpeg">
+<div class="user-name">
+<span><a href="#">annick_funny olivier</a></span>
+<p>Followed by eric b</p>
+</div>
+<div class="follow-btn">
+<span><a href="#">Follow</a></span>
+</div>
+</div> 
+
+
+<div class="user">
+<img src="../assets/images/bako.webp">
+<div class="user-name">
+<span><a href="#">annick_funny</a></span>
+<p>Followed by eric b</p>
+</div>
+<div class="follow-btn">
+<span><a href="#">Follow</a></span>
+</div>
+</div> 
+
+
+<div class="user">
+<img src="../assets/images/suggest3.jpg">
+<div class="user-name">
+<span><a href="#">annick_funny</a></span>
+<p>Followed by eric b</p>
+</div>
+<div class="follow-btn">
+<span><a href="#">Follow</a></span>
+</div>
+</div> 
+
+
+<div class="user">
+<img src="../assets/images/movie.webp">
+<div class="user-name">
+<span><a href="#">annick_funny</a></span>
+<p>Followed by eric b</p>
+</div>
+<div class="follow-btn">
+<span><a href="#">Follow</a></span>
+</div>
+</div> 
+</div>
+
+<div class="links-btn">
+<div class="links">
+<span><a href="#">About</a></span>
+<span>.</span>
+<span><a href="#">Help</a></span>
+<span>.</span>
+<span><a href="#">Press</a></span>
+<span>.</span>
+<span><a href="#">API</a></span>
+<span>.</span>
+<span><a href="#">JObs</a></span>
+<span>.</span>
+<span><a href="#">Privacy</a></span>
+<span>.</span>
+<span><a href="#">Terms</a></span>
+<span>.</span>
+<span><a href="#">Locations</a></span>
+<span>.</span>
+<span><a href="#"></a></span>
+<span>.</span>
+<span><a href="#">Language</a></span>
+<span>.</span>
+<span><a href="#">Meta Verfied</a></span>
+</div>
+<div class="copy-right">
+<p>&copy 2025 INSTAGRAM FROM META </p>
+</div>
+</div>
+
+</div>
+
+
+<script src="/js/main.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const logoutBtn = document.getElementById("logout");
+
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      sessionStorage.clear();
+      sessionStorage.setItem("logoutMessage", "Logged out successfully");
+      window.location.replace("/auth/login.html");
+    });
+  }
+
+  // 🔐 Block access to home if not logged in
+  if (sessionStorage.getItem("isLoggedIn") !== "true") {
+    window.location.replace("/auth/login.html");
+  }
+
+  // 🔒 Prevent going back after logout
+  window.history.pushState(null, null, window.location.href);
+  window.onpopstate = function () {
+    window.history.pushState(null, null, window.location.href);
+  };
+});
+</script>
+
+<script src="create-post"></script>
+
+<script>
+  // ======= UI TOGGLES =======
+const moreBtn = document.getElementById("more-btn");
+const switchContainer = document.getElementById("switch-accounts-container");
+const createPostBtn = document.getElementById("create");
+const createPostCard = document.querySelector(".create-post-card");
+const selectPost = document.getElementById("select-post");
+const openPostOption = document.getElementById("openModal");
+const postForm = document.querySelector(".post-form");
+const mediaInput = document.getElementById("media");
+const fileURL = document.getElementById("fileURL");
+const previewImages = document.getElementById("previewImage");
+const descriptionInput = document.getElementById("description");
+const usernameInput = document.getElementById("username");
+const mainContainer = document.querySelector(".main-container");
+
+// Toggle "More" menu
+moreBtn.addEventListener("click", e => {
+  e.preventDefault();
+  switchContainer.style.display = switchContainer.style.display === "block" ? "none" : "block";
+  createPostCard.style.display = "none";
+  e.stopPropagation();
+});
+
+// Toggle "Create" menu
+createPostBtn.addEventListener("click", e => {
+  e.preventDefault();
+  createPostCard.style.display = createPostCard.style.display === "block" ? "none" : "block";
+  switchContainer.style.display = "none";
+  e.stopPropagation();
+});
+
+// Show "Select Post" modal on clicking "Post" in create dropdown
+openPostOption.addEventListener("click", e => {
+  e.preventDefault();
+  selectPost.style.display = "flex";
+  createPostCard.style.display = "none";
+  e.stopPropagation();
+});
+
+// Close menus/modals when clicking outside
+document.addEventListener("click", e => {
+  if (!switchContainer.contains(e.target) && !moreBtn.contains(e.target)) {
+    switchContainer.style.display = "none";
+  }
+  if (!createPostCard.contains(e.target) && !createPostBtn.contains(e.target)) {
+    createPostCard.style.display = "none";
+  }
+  if (selectPost.style.display === "flex" && !selectPost.contains(e.target) && !openPostOption.contains(e.target)) {
+    selectPost.style.display = "none";
+  }
+});
+
+// File preview for upload input
+mediaInput.addEventListener("change", () => {
+  if (mediaInput.files.length > 0) {
+    const file = mediaInput.files[0];
+    const tempURL = URL.createObjectURL(file);
+    fileURL.value = tempURL;
+
+    if (file.type.startsWith("image/")) {
+      previewImages.src = tempURL;
+      previewImages.style.display = "block";
+    } else {
+      previewImages.style.display = "none";
+    }
+  } else {
+    fileURL.value = "";
+    previewImages.style.display = "none";
+  }
+});
+
+// Handle post form submission (local DOM only)
+
+postForm.addEventListener("submit", async e => {
+  e.preventDefault();
+
+  const file = mediaInput.files[0];
+  const description = descriptionInput.value.trim();
+  const username = sessionStorage.getItem("username") || "Anonymous"; // from login
+
+  if (!file) {
+    alert("Please select an image or video!");
+    return;
+  }
+
+  const fileURLLocal = URL.createObjectURL(file);
+
+  // 1️⃣ Build the new post object
+  const newPost = {
+    user: username,
+    description: description,
+    media: file.type.startsWith("image/") ? fileURLLocal : fileURLLocal,
+    type: file.type.startsWith("image/") ? "image" : "video",
+    likes: 0,
+    comments: [],
+    createdAt: new Date().toISOString()
+  };
+
+  try {
+    // 2️⃣ Save to db.json via JSON Server
+    const res = await fetch("http://localhost:3000/posts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newPost)
+    });
+
+    if (!res.ok) throw new Error("Failed to save post");
+
+    const savedPost = await res.json();
+
+    // 3️⃣ Render it in the DOM
+    const postEl = document.createElement("div");
+    postEl.classList.add("post");
+    postEl.innerHTML = `
+      <div class="post-images">
+        <div class="post-header">
+          <img src="../assets/images/profile1.jpg" alt="profile">
+          <span class="username">${savedPost.user}</span>
+          <p class="post-time">. just now</p>
+          <i class="fa-solid fa-ellipsis"></i>
+        </div>
+        <div class="post-img">
+          ${
+            savedPost.type === "image"
+              ? `<img src="${savedPost.media}" alt="post image">`
+              : `<video controls src="${savedPost.media}" style="max-width:100%;"></video>`
+          }
+        </div>
+        <div class="post-actions">
+          <div class="post-comment">
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-regular fa-comment"></i>
+            <i class="fa-regular fa-paper-plane"></i>
+            <i class="fa-regular fa-bookmark"></i>
+          </div>
+        </div>
+        <div class="total-like">
+          <a href="#">${savedPost.likes}</a><p>likes</p>
+        </div>
+        <div class="description">
+          <p><a href="#">${savedPost.user}</a> ${savedPost.description}</p>
+        </div>
+        <div class="comment-views">
+          <a href="#">No comments yet</a>
+        </div>
+        <div class="add-comments">
+          <input type="text" placeholder="Add comment">
+          <i class="fa-regular fa-face-smile"></i>
+        </div>
+      </div>
+    `;
+    mainContainer.prepend(postEl);
+
+    postForm.reset();
+    previewImages.style.display = "none";
+    selectPost.style.display = "none";
+
+  } catch (err) {
+    console.error(err);
+    alert("Error saving post!");
+  }
+});
+
+
+</script>
+<script src="/js/login.js" defer></script>
+<script src="/js/main.js" defer></script>
+<script src="/js/ui-toggles.js" defer></script>
+<script src="/js/file-preview.js" defer></script>
+<script src="/js/post-form.js" defer></script>
+<script src="/js/load-posts.js" defer></script>
+
+
+</body>
+</html>

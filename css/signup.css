@@ -1,0 +1,127 @@
+*{
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+}
+body {
+font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+background-color: #fafafa;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.signup-container{
+margin-top: 40px;
+width: 330px;
+}
+#form-box{
+
+border: 1px solid #dbdbdb;
+padding: 20px 20px 20px;
+text-align: center;
+background: #ffff;
+}
+.logo{
+font-size: 40px;
+font-weight: 500;
+}
+p{
+font-size: 16px;
+font-weight: 500;
+}
+.login-with-facebook-btn{
+width: 100%;
+padding: 0;
+}
+.login-fcb{
+width: 100%;
+padding: 10px;
+border-radius: 10px;
+border: none;
+color: #ffff;
+background: #0095f6;
+font-size: 15px;
+font-weight: 600;
+}
+.divider{
+margin: 10px 0;
+position: relative;
+}
+.divider::before,
+.divider::after{
+content: '';
+position: absolute;
+width: 110px;
+height: 1px;
+background-color: #dbdbdb;
+top: 50%;
+}
+.divider::before{
+left: 0;
+}
+.divider::after{
+right: 0;
+}
+input{
+width: 100%;
+padding: 10px;
+border:1px solid #dbdbdb;
+margin: 5px;
+outline: none;
+border-radius: 5px;
+}
+#links{
+width: 100%;
+text-align: center;
+font-size: 14px;
+}
+#links a{
+text-decoration: none;
+cursor: pointer;
+color: #0095f6;
+}
+.signup-btn button{
+width: 100%;
+padding: 10px;
+margin-bottom: 10px;
+border-radius: 5px;
+border: none;font-size: 16px;
+color: #ffff;
+background: #0095f6;
+}
+.login-box{
+margin-top: 20px;
+width: 330px;
+border: 1px solid #dbdbdb;
+padding: 10px 0 20px;
+text-align: center;
+background: #ffff;
+}
+.login-box p{
+font-size: 15px;
+}
+.login-box a{
+text-decoration: none;
+margin-bottom: 10px;
+color: #0095f6;
+}
+
+.message-box {
+  margin: 10px 0;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 8px;
+  display: none;
+}
+
+.message-success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.message-error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
