@@ -3,69 +3,63 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Instagram sign up</title>
+<title>Instagram Sign Up</title>
 <link rel="stylesheet" href="../css/signup.css">
 </head>
 <body>
     
 <div class="signup-container">
-<form action="" id="form-box">
+  <form id="signupForm">
+    <h1 class="logo">Instagram</h1>
+    <div id="message" class="message-box"></div>
 
+    <p>Sign up to see photos and videos from your friends.</p>
 
-<h1 class="logo">Instagram</h1>
-<div id="message" class="message-box"></div>
+    <div class="login-with-facebook-btn">
+      <button type="button" class="login-fcb">Login With Facebook</button>
+    </div>
 
-<p>Sign up to see photos and videos from your friends.</p>
-<div class="login-with-facebook-btn">
-<button class="login-fcb">Login With Facebook</button>
-</div>
-<div class="divider">
-OR
-</div>
+    <div class="divider">OR</div>
 
+    <div class="input-control">
+      <input type="text" placeholder="Mobile number or email" id="email" required>
+      <div class="error"></div>
+    </div>
 
-<div class="input-control">
-<input type="text" placeholder="Mobile number or email" id="email">
-<div class="error"></div>
-</div>
+    <div class="input-control">
+      <input type="password" placeholder="Password" id="password" required>
+      <div class="error"></div>
+    </div>
 
+    <div class="input-control">
+      <input type="text" placeholder="Full Name" id="fullName" required>
+      <div class="error"></div>
+    </div>
 
-<div class="input-control">
-<input type="password" placeholder="password" id="email">
-<div class="error"></div>
-</div>
+    <div class="input-control">
+      <input type="text" placeholder="Username" id="username" required>
+      <div class="error"></div>
+    </div>
 
+    <p id="links">
+      By signing up, you agree to our 
+      <a href="#" id="terms">Terms</a>
+      <span>&</span>
+      <a href="#" id="privacy">Privacy</a>
+      <a href="#" id="policy">Policy</a>.
+    </p>
 
-<div class="input-control">
-<input type="text" placeholder="Full Name" id="full-name">
-<div class="error"></div>
-</div>
+    <div class="signup-btn">
+      <button type="submit">Sign Up</button>
+    </div>
+  </form>   
 
-
-<div class="input-control">
-<input type="text" placeholder="username" id="user-name">
-<div class="error"></div>
-</div>
-
-
-
-<p id="links">By sign up, you agree to our 
-<a href="#" id="Terms">terms</a>
-<span>&</span>
-<a href="#" id="Terms">Privacy</a>
-<a href="#" id="policy">Policy</a>.
-</p>
-<div class="signup-btn">
-<button type="submit">sign up</button>
-</div>
-</form>   
-
-<div class="login-box">
-<p>Have an account?</p>
-<a href="login.html">Log in</a>
-</div>
+  <div class="login-box">
+    <p>Have an account?</p>
+    <a href="login.html">Log in</a>
+  </div>
 </div>
 
-<script src="/js/signup.js"></script>
+<script src="../js/signup.js"></script>
 </body>
 </html>

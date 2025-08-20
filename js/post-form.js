@@ -72,7 +72,7 @@ postForm.addEventListener("submit", async e => {
         </div>
         <div class="post-actions">
           <div class="post-comment">
-            <i class="fa-regular fa-heart"></i>
+            <i class="fa-regular fa-heart" id="likeBtn"></i>
             <i class="fa-regular fa-comment"></i>
             <i class="fa-regular fa-paper-plane"></i>
             <i class="fa-regular fa-bookmark"></i>
@@ -88,7 +88,7 @@ postForm.addEventListener("submit", async e => {
           <a href="#">No comments yet</a>
         </div>
         <div class="add-comments">
-          <input type="text" placeholder="Add comment">
+          <input type="text" placeholder="Add commentdddddddddddd">
           <i class="fa-regular fa-face-smile"></i>
         </div>
       </div>

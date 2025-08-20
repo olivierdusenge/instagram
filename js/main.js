@@ -22,3 +22,5 @@ document.addEventListener("DOMContentLoaded", function () {
     window.history.pushState(null, null, window.location.href);
   };
 });
+
+

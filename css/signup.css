@@ -14,9 +14,13 @@ align-items: center;
 margin-top: 40px;
 width: 330px;
 }
+#signupForm{
+  text-align: center;
+  border: 1px solid #dbdbdb;
+  padding: 10px;
+}
 #form-box{
 
-border: 1px solid #dbdbdb;
 padding: 20px 20px 20px;
 text-align: center;
 background: #ffff;
@@ -24,10 +28,12 @@ background: #ffff;
 .logo{
 font-size: 40px;
 font-weight: 500;
+margin-bottom: 20px;
 }
 p{
 font-size: 16px;
 font-weight: 500;
+margin-bottom: 30px;
 }
 .login-with-facebook-btn{
 width: 100%;
@@ -69,11 +75,13 @@ border:1px solid #dbdbdb;
 margin: 5px;
 outline: none;
 border-radius: 5px;
+
 }
 #links{
 width: 100%;
 text-align: center;
 font-size: 14px;
+margin-top: 10px;
 }
 #links a{
 text-decoration: none;

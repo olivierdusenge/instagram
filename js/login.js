@@ -1,47 +1,50 @@
 // login.js
-
 document.addEventListener("DOMContentLoaded", function () {
   const loginForm = document.getElementById("loginForm");
   const emailInput = document.getElementById("email");
   const passwordInput = document.getElementById("password");
   const messageBox = document.getElementById("message");
 
-  // Dummy users (replace with JSON Server or database if needed)
-  const users = [
-    { username: "olivier", email: "olivier@example.com", password: "123456" },
-    { username: "jean", email: "jean@example.com", password: "abcdef" }
-  ];
-
-  loginForm.addEventListener("submit", function (e) {
+  loginForm.addEventListener("submit", async function (e) {
     e.preventDefault();
 
     const email = emailInput.value.trim();
     const password = passwordInput.value.trim();
 
     if (!email || !password) {
-      messageBox.textContent = "Please fill in all fields!";
-      messageBox.style.color = "red";
+      showMessage("⚠️ Please fill in all fields!", "error");
       return;
     }
 
-    // Check if user exists
-    const user = users.find(u => u.email === email && u.password === password);
+    try {
+      const response = await fetch("http://localhost:3000/users");
+      if (!response.ok) throw new Error("Failed to connect to server");
 
-    if (user) {
-      // Save login info in sessionStorage
-      sessionStorage.setItem("isLoggedIn", "true");
-      sessionStorage.setItem("username", user.username);
+      const users = await response.json();
 
-      messageBox.textContent = "Login successful! Redirecting...";
-      messageBox.style.color = "green";
+      const user = users.find(u => u.email === email && u.password === password);
 
-      // Redirect to home page
-      setTimeout(() => {
-        window.location.href = "../index.html"; // adjust path if needed
-      }, 1000);
-    } else {
-      messageBox.textContent = "Invalid email or password!";
-      messageBox.style.color = "red";
+      if (user) {
+        sessionStorage.setItem("isLoggedIn", "true");
+        sessionStorage.setItem("username", user.username);
+        sessionStorage.setItem("userId", user.id);
+
+        showMessage("✅ Login successful! Redirecting...", "success");
+
+        setTimeout(() => {
+          window.location.href = "../inst-blog/index.html";
+        }, 1500);
+      } else {
+        showMessage("❌ Invalid email or password!", "error");
+      }
+    } catch (error) {
+      showMessage("🚨 Server error: " + error.message, "error");
     }
   });
+
+  function showMessage(message, type) {
+    messageBox.textContent = message;
+    messageBox.style.display = "block";
+    messageBox.className = `message ${type}`;
+  }
 });

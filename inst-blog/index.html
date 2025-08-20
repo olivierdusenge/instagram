@@ -11,11 +11,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
 <link rel="icon" href="loog.jpeg" type="image/jpeg">
+
+
 </head>
 <body>
 <!-- CONTAINER -->
 <div class="container">
 <div class="sidebar">
+
+  
 <div class="logo">
 <p>Instagram</p>
 </div>
@@ -72,18 +76,15 @@
 <div class="menu-item"><i class="fa-regular fa-moon"></i>Switch appearance</div>
 <div class="menu-item"><i class="fa-solid fa-circle-exclamation"></i>Report a problem</div>
 
-<div class="divider"></div> <!-- Top border line -->
+<div class="divider"></div>
 <div class="menu-item"><i class="fa-brands fa-threads"></i>Threads</div>
-<div class="divider"></div> <!-- Bottom border line -->
+<div class="divider"></div>
 
 <div class="menu-item">Switch accounts</div>
 <div class="menu-item" id="logout"><a href="/auth/login.html">logout</a></div>
 </div>
-<!-- switch aperance-card -->
 
-<div class="switch-appearance-card">
-
-</div>
+<div class="switch-appearance-card"></div>
 
 </div>
 <!-- create-Post -->
@@ -107,6 +108,7 @@
       </li>
     </ul>
  </div>
+
 <!-- MAIN -->
 <main class="main-container">
 <div class="stories">
@@ -120,18 +122,15 @@
 <span id="name">vinisius</span>
 </div>
 
-
 <div class="story">
 <img src="../assets/images/profile3.jpg">
 <span id="name">Vedaste</span>
 </div>
 
-
 <div class="story">
 <img src="../assets/images/profile4.jpg">
 <span id="name">Lil john</span>
 </div>
-
 
 <div class="story">
 <img src="../assets/images/profile5.jpg">
@@ -143,53 +142,10 @@
 <span id="name">emmy</span>
 </div>
 </div>
-<div class="post" id="post">
-<div class="post-images">
-<div class="post-header">
-<img src="../assets/images/post-header6.jpeg">
-<span class="username">Realmadride</span>
-<p class="post-time">. 2h</p>
-<i class="fa-solid fa-ellipsis"></i>
-</div>
-<div class="post-img">
-<img src="../assets/images/boby.webp" alt="">
-</div>
-<div class="post-actions">
-<div class="post-comment">
-<i class="fa-regular fa-heart"></i>
-<i class="fa-regular fa-comment"></i>
-<i class="fa-regular fa-paper-plane"></i>
-<i class="fa-regular fa-bookmark" id="bookmark"></i>
-</div>
-</div>
-<div class="total-like">
-<a href="#" id="likes">211,667</a><p>likes</p>
-</div>
-<div class="description">
-<P><a href="#">Realmadride</a> 
 
-🤔 How do you say semi-final in YOUR language?
-🗣️ ¿Cómo se dice semifinal en TU idioma?
-<a href="#" id="tag">#FIFACWC</a>
-</P>
-</div>
-<div class="comment-views">
-<a href="#" id="comm-views">View all 1,249 comments</a>
-</div>
-<div class="add-comments">
-<input type="text" placeholder="Add comment">
-<i class="fa-regular fa-face-smile"></i>
-</div>
-</div>
-</div>
+<div class="all-posts" id="all-posts"></div>
 
-
-<div class="post">
-<div class="post-images">
-<div class="post-header">
-
-<!--create new-post-->
-  <!-- Modal -->
+<!-- create new post modal -->
 <div class="select-post" id="select-post">
   <form class="post-form">
     <h2>Select Post</h2>
@@ -200,7 +156,6 @@
       <input type="text" id="fileURL" placeholder="Selected file URL..." readonly />
       <button type="button" onclick="document.getElementById('media').click()">Choose File</button>
 
-      <!-- Optional: preview image -->
       <img id="previewImage" style="margin-top:10px; max-width:100%; display:none;" />
     </div>
 
@@ -215,7 +170,6 @@
   </form>
 </div>
 
-  
 </main>
 
 <div class="right-profile">
@@ -245,7 +199,6 @@
 </div>
 </div> 
 
-
 <div class="user">
 <img src="../assets/images/bako.webp">
 <div class="user-name">
@@ -257,7 +210,6 @@
 </div>
 </div> 
 
-
 <div class="user">
 <img src="../assets/images/suggest3.jpg">
 <div class="user-name">
@@ -268,7 +220,6 @@
 <span><a href="#">Follow</a></span>
 </div>
 </div> 
-
 
 <div class="user">
 <img src="../assets/images/movie.webp">
@@ -312,11 +263,8 @@
 </div>
 
 </div>
-
-
-<script src="/js/main.js"></script>
-
-<script>
+ <script>
+// ============ AUTHENTICATION & PAGE PROTECTION ============
 document.addEventListener("DOMContentLoaded", function () {
   const logoutBtn = document.getElementById("logout");
 
@@ -329,36 +277,26 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // 🔐 Block access to home if not logged in
+  // Block access to home if not logged in
   if (sessionStorage.getItem("isLoggedIn") !== "true") {
     window.location.replace("/auth/login.html");
   }
 
-  // 🔒 Prevent going back after logout
+  // Prevent going back after logout
   window.history.pushState(null, null, window.location.href);
   window.onpopstate = function () {
     window.history.pushState(null, null, window.location.href);
   };
 });
-</script>
 
-<script src="create-post"></script>
-
-<script>
-  // ======= UI TOGGLES =======
+// ============ UI TOGGLES ============
 const moreBtn = document.getElementById("more-btn");
 const switchContainer = document.getElementById("switch-accounts-container");
 const createPostBtn = document.getElementById("create");
 const createPostCard = document.querySelector(".create-post-card");
 const selectPost = document.getElementById("select-post");
 const openPostOption = document.getElementById("openModal");
-const postForm = document.querySelector(".post-form");
-const mediaInput = document.getElementById("media");
-const fileURL = document.getElementById("fileURL");
-const previewImages = document.getElementById("previewImage");
-const descriptionInput = document.getElementById("description");
-const usernameInput = document.getElementById("username");
-const mainContainer = document.querySelector(".main-container");
+
 
 // Toggle "More" menu
 moreBtn.addEventListener("click", e => {
@@ -376,10 +314,10 @@ createPostBtn.addEventListener("click", e => {
   e.stopPropagation();
 });
 
-// Show "Select Post" modal on clicking "Post" in create dropdown
+// Show "Select Post" modal
 openPostOption.addEventListener("click", e => {
   e.preventDefault();
-  selectPost.style.display = "flex";
+  selectPost.style.display = "block";
   createPostCard.style.display = "none";
   e.stopPropagation();
 });
@@ -392,12 +330,12 @@ document.addEventListener("click", e => {
   if (!createPostCard.contains(e.target) && !createPostBtn.contains(e.target)) {
     createPostCard.style.display = "none";
   }
-  if (selectPost.style.display === "flex" && !selectPost.contains(e.target) && !openPostOption.contains(e.target)) {
+  if (selectPost.style.display === "" && !selectPost.contains(e.target) && !openPostOption.contains(e.target)) {
     selectPost.style.display = "none";
   }
 });
 
-// File preview for upload input
+// File preview
 mediaInput.addEventListener("change", () => {
   if (mediaInput.files.length > 0) {
     const file = mediaInput.files[0];
@@ -416,35 +354,72 @@ mediaInput.addEventListener("change", () => {
   }
 });
 
-// Handle post form submission (local DOM only)
+// ============ UTILITY FUNCTIONS ============
+function toBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+  });
+}
 
+function formatLikeCount(count) {
+  if (count >= 1000000) {
+    return (count / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+  }
+  if (count >= 1000) {
+    return (count / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+  }
+  return count.toLocaleString();
+}
+
+function showNotification(message, type = "info") {
+  const notification = document.createElement("div");
+  notification.className = `notification ${type}`;
+  notification.textContent = message;
+  
+  document.body.appendChild(notification);
+  
+  setTimeout(() => notification.style.opacity = "1", 10);
+  
+  setTimeout(() => {
+    notification.style.opacity = "0";
+    setTimeout(() => {
+      if (document.body.contains(notification)) {
+        document.body.removeChild(notification);
+      }
+    }, 300);
+  }, 3000);
+}
+
+// ============ POST CREATION ============
 postForm.addEventListener("submit", async e => {
   e.preventDefault();
 
   const file = mediaInput.files[0];
   const description = descriptionInput.value.trim();
-  const username = sessionStorage.getItem("username") || "Anonymous"; // from login
+  const username = sessionStorage.getItem("username") || "Anonymous";
 
   if (!file) {
-    alert("Please select an image or video!");
+    showNotification("Please select an image or video!", "error");
     return;
   }
 
-  const fileURLLocal = URL.createObjectURL(file);
-
-  // 1️⃣ Build the new post object
-  const newPost = {
-    user: username,
-    description: description,
-    media: file.type.startsWith("image/") ? fileURLLocal : fileURLLocal,
-    type: file.type.startsWith("image/") ? "image" : "video",
-    likes: 0,
-    comments: [],
-    createdAt: new Date().toISOString()
-  };
-
   try {
-    // 2️⃣ Save to db.json via JSON Server
+    const base64Media = await toBase64(file);
+
+    const newPost = {
+      user: username,
+      description: description,
+      media: base64Media,
+      type: file.type.startsWith("image/") ? "image" : "video",
+      likes: 0,
+      likedBy: [],
+      comments: [],
+      createdAt: new Date().toISOString()
+    };
+
     const res = await fetch("http://localhost:3000/posts", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -455,34 +430,35 @@ postForm.addEventListener("submit", async e => {
 
     const savedPost = await res.json();
 
-    // 3️⃣ Render it in the DOM
+    // Add new post to UI immediately
     const postEl = document.createElement("div");
     postEl.classList.add("post");
+    postEl.dataset.id = savedPost.id;
+    
     postEl.innerHTML = `
       <div class="post-images">
         <div class="post-header">
           <img src="../assets/images/profile1.jpg" alt="profile">
           <span class="username">${savedPost.user}</span>
-          <p class="post-time">. just now</p>
+          <p class="post-time">just now</p>
           <i class="fa-solid fa-ellipsis"></i>
         </div>
         <div class="post-img">
-          ${
-            savedPost.type === "image"
-              ? `<img src="${savedPost.media}" alt="post image">`
-              : `<video controls src="${savedPost.media}" style="max-width:100%;"></video>`
+          ${savedPost.type === "image" 
+            ? `<img src="${savedPost.media}" alt="post image">`
+            : `<video controls src="${savedPost.media}"></video>`
           }
         </div>
         <div class="post-actions">
           <div class="post-comment">
-            <i class="fa-regular fa-heart"></i>
+            <i class="fa-regular fa-heart like-btn"></i>
             <i class="fa-regular fa-comment"></i>
             <i class="fa-regular fa-paper-plane"></i>
             <i class="fa-regular fa-bookmark"></i>
           </div>
         </div>
         <div class="total-like">
-          <a href="#">${savedPost.likes}</a><p>likes</p>
+          <a href="#" class="like-count">0</a><p>likes</p>
         </div>
         <div class="description">
           <p><a href="#">${savedPost.user}</a> ${savedPost.description}</p>
@@ -491,32 +467,612 @@ postForm.addEventListener("submit", async e => {
           <a href="#">No comments yet</a>
         </div>
         <div class="add-comments">
-          <input type="text" placeholder="Add comment">
+          <input type="text" class="comment-input" placeholder="Add a comment...">
+          <button class="post-comment-btn" disabled>Post</button>
           <i class="fa-regular fa-face-smile"></i>
         </div>
       </div>
     `;
-    mainContainer.prepend(postEl);
+    
+    allPosts.prepend(postEl);
 
     postForm.reset();
     previewImages.style.display = "none";
     selectPost.style.display = "none";
+    
+    showNotification("Post created successfully!", "success");
 
   } catch (err) {
-    console.error(err);
-    alert("Error saving post!");
+    console.error("Error saving post:", err);
+    showNotification("Error saving post!", "error");
+  }
+});
+
+// ============ LOAD POSTS ============
+async function getPosts() {
+  try {
+    const res = await fetch("http://localhost:3000/posts");
+    if (!res.ok) throw new Error("Failed to fetch posts");
+
+    const posts = await res.json();
+    allPosts.innerHTML = "";
+
+    posts.reverse().forEach(post => {
+      const postEl = document.createElement("div");
+      postEl.classList.add("post");
+      postEl.dataset.id = post.id; // Important: Add post ID
+      
+      postEl.innerHTML = `
+        <div class="post-images">
+          <div class="post-header">
+            <img src="../assets/images/profile1.jpg" alt="profile">
+            <span class="username">${post.user}</span>
+            <p class="post-time">${new Date(post.createdAt).toLocaleString()}</p>
+            <i class="fa-solid fa-ellipsis"></i>
+          </div>
+          <div class="post-img">
+            ${post.type === "image" 
+              ? `<img src="${post.media}" alt="post image">`
+              : `<video controls src="${post.media}"></video>`
+            }
+          </div>
+          <div class="post-actions">
+            <div class="post-comment">
+              <i class="fa-regular fa-heart like-btn"></i>
+              <i class="fa-regular fa-comment"></i>
+              <i class="fa-regular fa-paper-plane"></i>
+              <i class="fa-regular fa-bookmark"></i>
+            </div>
+          </div>
+          <div class="total-like">
+            <a href="#" class="like-count">${formatLikeCount(post.likes || 0)}</a><p>likes</p>
+          </div>
+          <div class="description">
+            <p><a href="#">${post.user}</a> ${post.description || ''}</p>
+          </div>
+          <div class="comment-views">
+            ${post.comments && post.comments.length > 0 
+              ? `<a href="#">View all ${post.comments.length} comments</a>`
+              : `<a href="#">No comments yet</a>`
+            }
+          </div>
+          <div class="add-comments">
+            <input type="text" class="comment-input" placeholder="Add a comment...">
+            <button class="post-comment-btn" disabled>Post</button>
+            <i class="fa-regular fa-face-smile"></i>
+          </div>
+        </div>
+      `;
+      allPosts.appendChild(postEl);
+    });
+
+    // Initialize like states after posts load
+    setTimeout(() => initializeLikeStates(posts.reverse()), 100);
+
+  } catch (err) {
+    console.error("Error loading posts:", err);
+    showNotification("Error loading posts!", "error");
+  }
+}
+
+// ============ LIKE FUNCTIONALITY ============
+function initializeLikeStates(posts) {
+  const username = sessionStorage.getItem("username") || "Anonymous";
+  
+  posts.forEach((post, index) => {
+    const postElement = document.querySelectorAll(".post")[index];
+    if (!postElement) return;
+    
+    const heartIcon = postElement.querySelector(".fa-heart");
+    const likedBy = post.likedBy || [];
+    
+    if (likedBy.includes(username)) {
+      heartIcon.classList.remove("fa-regular");
+      heartIcon.classList.add("fa-solid", "liked");
+      heartIcon.style.color = "#ed4956";
+    } else {
+      heartIcon.classList.remove("fa-solid", "liked");
+      heartIcon.classList.add("fa-regular");
+      heartIcon.style.color = "#262626";
+    }
+  });
+}
+
+// Like button event handler
+allPosts.addEventListener("click", async (e) => {
+  if (e.target.classList.contains("fa-heart")) {
+    e.preventDefault();
+    
+    const heartIcon = e.target;
+    const postElement = heartIcon.closest(".post");
+    const likeCountElement = postElement.querySelector(".like-count");
+    const postId = postElement.dataset.id;
+    
+    if (!postId) {
+      console.error("Post ID not found");
+      return;
+    }
+
+    const username = sessionStorage.getItem("username") || "Anonymous";
+    
+    try {
+      const response = await fetch(`http://localhost:3000/posts/${postId}`);
+      if (!response.ok) throw new Error("Failed to fetch post data");
+      
+      const postData = await response.json();
+      
+      if (!postData.likedBy) postData.likedBy = [];
+      
+      const isLiked = postData.likedBy.includes(username);
+      let newLikeCount = postData.likes || 0;
+      
+      if (isLiked) {
+        // Unlike
+        postData.likedBy = postData.likedBy.filter(user => user !== username);
+        newLikeCount = Math.max(0, newLikeCount - 1);
+        
+        heartIcon.classList.remove("fa-solid", "liked");
+        heartIcon.classList.add("fa-regular");
+        heartIcon.style.color = "#262626";
+        
+      } else {
+        // Like
+        postData.likedBy.push(username);
+        newLikeCount = newLikeCount + 1;
+        
+        heartIcon.classList.remove("fa-regular");
+        heartIcon.classList.add("fa-solid", "liked");
+        heartIcon.style.color = "#ed4956";
+        
+        heartIcon.style.transform = "scale(1.3)";
+        setTimeout(() => {
+          heartIcon.style.transform = "scale(1)";
+        }, 150);
+      }
+      
+      likeCountElement.textContent = formatLikeCount(newLikeCount);
+      
+      const updateResponse = await fetch(`http://localhost:3000/posts/${postId}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          likes: newLikeCount,
+          likedBy: postData.likedBy
+        })
+      });
+      
+      if (!updateResponse.ok) {
+        throw new Error("Failed to update like status");
+      }
+      
+    } catch (error) {
+      console.error("Error updating like status:", error);
+      showNotification("Failed to update like. Please try again.", "error");
+    }
   }
 });
 
 
-</script>
-<script src="/js/login.js" defer></script>
-<script src="/js/main.js" defer></script>
-<script src="/js/ui-toggles.js" defer></script>
-<script src="/js/file-preview.js" defer></script>
-<script src="/js/post-form.js" defer></script>
-<script src="/js/load-posts.js" defer></script>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ============ COMMENT SECTION ============
+allPosts.addEventListener("input", (e) => {
+  if (e.target.classList.contains("comment-input")) {
+    const postBtn = e.target.closest(".add-comments").querySelector(".post-comment-btn");
+    postBtn.style.display = e.target.value.trim() ? "inline-block" : "none";
+    postBtn.disabled = !e.target.value.trim();
+  }
+});
+
+allPosts.addEventListener("click", async (e) => {
+  if (e.target.classList.contains("post-comment-btn")) {
+    const commentBtn = e.target;
+    const commentInput = commentBtn.closest(".add-comments").querySelector(".comment-input");
+    const commentText = commentInput.value.trim();
+
+    if (!commentText) return;
+
+    const postEl = commentBtn.closest(".post");
+    const username = sessionStorage.getItem("username") || "Anonymous";
+
+    let commentViews = postEl.querySelector(".comment-views");
+    
+    if (commentViews.textContent.includes("No comments yet")) {
+      commentViews.innerHTML = '';
+    }
+
+    const newComment = document.createElement("p");
+    newComment.innerHTML = `<strong>${username}</strong> ${commentText}`;
+    commentViews.appendChild(newComment);
+
+    commentInput.value = "";
+    commentBtn.style.display = "none";
+    commentBtn.disabled = true;
+  }
+});
+
+// ============ INITIALIZE ============
+document.addEventListener("DOMContentLoaded", () => {
+  getPosts();
+});
+
+
+allPosts.addEventListener("input", (e) => {
+  if (e.target.classList.contains("comment-input")) {
+    const postBtn = e.target.closest(".add-comments").querySelector(".post-comment-btn");
+    postBtn.style.display = e.target.value.trim() ? "inline-block" : "none";
+    postBtn.disabled = !e.target.value.trim();
+  }
+});
+
+
+
+// commnet-section
+
+// ============ COMMENT INPUT & POST BUTTON ============
+allPosts.addEventListener("input", (e) => {
+  if (e.target.classList.contains("comment-input")) {
+    const postBtn = e.target.closest(".add-comments").querySelector(".post-comment-btn");
+    postBtn.style.display = e.target.value.trim() ? "inline-block" : "none";
+    postBtn.disabled = !e.target.value.trim();
+  }
+});
+
+// ============ ADD COMMENT ============
+allPosts.addEventListener("click", async (e) => {
+  if (e.target.classList.contains("post-comment-btn")) {
+    const commentBtn = e.target;
+    const commentInput = commentBtn.closest(".add-comments").querySelector(".comment-input");
+    const commentText = commentInput.value.trim();
+
+    if (!commentText) return;
+
+    const postEl = commentBtn.closest(".post");
+    const postId = postEl.dataset.id; // assuming you set data-id for each post
+    const username = sessionStorage.getItem("username") || "Anonymous";
+
+    // save comment in db.json
+    const res = await fetch(`http://localhost:3000/posts/${postId}`);
+    const post = await res.json();
+
+    const newComment = { username, text: commentText };
+    const updatedComments = [...(post.comments || []), newComment];
+
+    await fetch(`http://localhost:3000/posts/${postId}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ comments: updatedComments }),
+    });
+
+    // append new comment to UI
+    let commentViews = postEl.querySelector(".comment-views");
+    if (commentViews.textContent.includes("No comments yet")) {
+      commentViews.innerHTML = "";
+    }
+
+    const commentEl = document.createElement("p");
+    commentEl.innerHTML = `<strong>${username}</strong> ${commentText}`;
+    commentViews.appendChild(commentEl);
+
+    commentInput.value = "";
+    commentBtn.style.display = "none";
+    commentBtn.disabled = true;
+  }
+});
+
+// ============ VIEW ALL COMMENTS ============
+allPosts.addEventListener("click", async (e) => {
+  if (e.target.classList.contains("view-all-comments")) {
+    const postEl = e.target.closest(".post");
+    const postId = postEl.dataset.id; // post id
+    const commentViews = postEl.querySelector(".comment-views");
+
+    // fetch full post with comments
+    const res = await fetch(`http://localhost:3000/posts/${postId}`);
+    const post = await res.json();
+
+    commentViews.innerHTML = ""; // clear
+    if (!post.comments || post.comments.length === 0) {
+      commentViews.innerHTML = "<p>No comments yet</p>";
+      return;
+    }
+
+    post.comments.forEach((c) => {
+      const p = document.createElement("p");
+      p.innerHTML = `<strong>${c.username}</strong> ${c.text}`;
+      commentViews.appendChild(p);
+    });
+  }
+});
+
+
+
+
+// ============ INITIALIZE ============
+document.addEventListener("DOMContentLoaded", () => {
+  getPosts();
+});
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  getPosts();
+});
+
+</script> -->
+
+
+
+<script>
+// ============ SELECT ELEMENTS ============
+const allPosts = document.getElementById("all-posts");
+const postForm = document.querySelector(".post-form");
+const mediaInput = document.getElementById("media");
+const fileURL = document.getElementById("fileURL");
+const previewImages = document.getElementById("previewImage");
+const descriptionInput = document.getElementById("description");
+
+// ============ UTILITY FUNCTIONS ============
+function toBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+  });
+}
+
+function formatLikeCount(count) {
+  if (count >= 1000000) return (count / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+  if (count >= 1000) return (count / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+  return count.toLocaleString();
+}
+
+function showNotification(message, type = "info") {
+  const notification = document.createElement("div");
+  notification.className = `notification ${type}`;
+  notification.textContent = message;
+  document.body.appendChild(notification);
+  setTimeout(() => notification.style.opacity = "1", 10);
+  setTimeout(() => {
+    notification.style.opacity = "0";
+    setTimeout(() => {
+      if (document.body.contains(notification)) document.body.removeChild(notification);
+    }, 300);
+  }, 3000);
+}
+
+// ============ POST CREATION ============
+postForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const file = mediaInput.files[0];
+  const description = descriptionInput.value.trim();
+  const username = sessionStorage.getItem("username") || "Anonymous";
+
+  if (!file) return showNotification("Please select an image or video!", "error");
+
+  try {
+    const base64Media = await toBase64(file);
+    const newPost = {
+      user: username,
+      description,
+      media: base64Media,
+      type: file.type.startsWith("image/") ? "image" : "video",
+      likes: 0,
+      likedBy: [],
+      comments: [],
+      createdAt: new Date().toISOString()
+    };
+
+    const res = await fetch("http://localhost:3000/posts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newPost)
+    });
+
+    if (!res.ok) throw new Error("Failed to save post");
+    const savedPost = await res.json();
+    addPostToUI(savedPost, true);
+
+    postForm.reset();
+    previewImages.style.display = "none";
+    showNotification("Post created successfully!", "success");
+  } catch (err) {
+    console.error(err);
+    showNotification("Error saving post!", "error");
+  }
+});
+
+// ============ LOAD POSTS ============
+async function getPosts() {
+  try {
+    const res = await fetch("http://localhost:3000/posts");
+    if (!res.ok) throw new Error("Failed to fetch posts");
+    const posts = await res.json();
+    allPosts.innerHTML = "";
+    posts.reverse().forEach(post => addPostToUI(post));
+  } catch (err) {
+    console.error(err);
+    showNotification("Error loading posts!", "error");
+  }
+}
+// ============ ADD POST TO UI ============
+function addPostToUI(post, prepend = false) {
+  const postEl = document.createElement("div");
+  postEl.classList.add("post");
+  postEl.dataset.id = post.id;
+  postEl.innerHTML = `
+    <div class="post-images">
+      <div class="post-header">
+        <img src="../assets/images/profile1.jpg" alt="profile">
+        <span class="username">${post.user}</span>
+        <p class="post-time">${new Date(post.createdAt).toLocaleString()}</p>
+        <i class="fa-solid fa-ellipsis"></i>
+      </div>
+      <div class="post-img">
+        ${post.type === "image" ? `<img src="${post.media}" alt="post image">` : `<video controls src="${post.media}"></video>`}
+      </div>
+      <div class="post-actions">
+        <div class="post-comment">
+          <i class="fa-regular fa-heart like-btn"></i>
+          <i class="fa-regular fa-comment"></i>
+          <i class="fa-regular fa-paper-plane"></i>
+          <i class="fa-regular fa-bookmark"></i>
+        </div>
+      </div>
+      <div class="total-like">
+        <a href="#" class="like-count">${formatLikeCount(post.likes)}</a><p>likes</p>
+      </div>
+      <div class="description">
+        <p><a href="#">${post.user}</a> ${post.description || ''}</p>
+      </div>
+      <div class="comment-views">
+        ${post.comments.length > 0 ? '' : '<p>No comments yet</p>'}
+      </div>
+      <div class="add-comments">
+        <input type="text" class="comment-input" placeholder="Add a comment...">
+        <button class="post-comment-btn" disabled>Post</button>
+        <i class="fa-regular fa-face-smile"></i>
+      </div>
+    </div>
+  `;
+  
+  // Append all existing comments
+  const commentViews = postEl.querySelector(".comment-views");
+  post.comments.forEach(c => {
+    const p = document.createElement("p");
+    p.innerHTML = `<strong>${c.username}</strong> ${c.text}`;
+    commentViews.appendChild(p);
+  });
+
+  if (prepend) allPosts.prepend(postEl);
+  else allPosts.appendChild(postEl);
+
+  // Initialize like button
+  initializeLikeButton(postEl, post);
+}
+
+// ============ LIKE FUNCTIONALITY ============
+function initializeLikeButton(postEl, post) {
+  const heartIcon = postEl.querySelector(".like-btn");
+  const likeCountElement = postEl.querySelector(".like-count");
+  const username = sessionStorage.getItem("username") || "Anonymous";
+
+  if (post.likedBy.includes(username)) {
+    heartIcon.classList.replace("fa-regular", "fa-solid");
+    heartIcon.classList.add("liked");
+    heartIcon.style.color = "#ed4956";
+  }
+
+  heartIcon.addEventListener("click", async () => {
+    try {
+      const res = await fetch(`http://localhost:3000/posts/${post.id}`);
+      const postData = await res.json();
+      let newLikeCount = postData.likes || 0;
+
+      if (postData.likedBy.includes(username)) {
+        // Unlike
+        postData.likedBy = postData.likedBy.filter(u => u !== username);
+        newLikeCount = Math.max(0, newLikeCount - 1);
+        heartIcon.classList.replace("fa-solid", "fa-regular");
+        heartIcon.classList.remove("liked");
+        heartIcon.style.color = "#262626";
+      } else {
+        // Like
+        postData.likedBy.push(username);
+        newLikeCount += 1;
+        heartIcon.classList.replace("fa-regular", "fa-solid");
+        heartIcon.classList.add("liked");
+        heartIcon.style.color = "#ed4956";
+        heartIcon.style.transform = "scale(1.3)";
+        setTimeout(() => heartIcon.style.transform = "scale(1)", 150);
+      }
+
+      likeCountElement.textContent = formatLikeCount(newLikeCount);
+
+      await fetch(`http://localhost:3000/posts/${post.id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ likes: newLikeCount, likedBy: postData.likedBy })
+      });
+    } catch (err) {
+      console.error(err);
+      showNotification("Error updating like!", "error");
+    }
+  });
+}
+
+// ============ COMMENT FUNCTIONALITY ============
+allPosts.addEventListener("input", (e) => {
+  if (e.target.classList.contains("comment-input")) {
+    const postBtn = e.target.closest(".add-comments").querySelector(".post-comment-btn");
+    postBtn.style.display = e.target.value.trim() ? "inline-block" : "none";
+    postBtn.disabled = !e.target.value.trim();
+  }
+});
+
+allPosts.addEventListener("click", async (e) => {
+  if (e.target.classList.contains("post-comment-btn")) {
+    const commentBtn = e.target;
+    const commentInput = commentBtn.closest(".add-comments").querySelector(".comment-input");
+    const commentText = commentInput.value.trim();
+    if (!commentText) return;
+
+    const postEl = commentBtn.closest(".post");
+    const postId = postEl.dataset.id;
+    const username = sessionStorage.getItem("username") || "Anonymous";
+
+    try {
+      const res = await fetch(`http://localhost:3000/posts/${postId}`);
+      const postData = await res.json();
+      const updatedComments = [...(postData.comments || []), { username, text: commentText }];
+
+      await fetch(`http://localhost:3000/posts/${postId}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ comments: updatedComments })
+      });
+
+      // Update UI
+      const commentViews = postEl.querySelector(".comment-views");
+      commentViews.innerHTML = "";
+      updatedComments.forEach(c => {
+        const p = document.createElement("p");
+        p.innerHTML = `<strong>${c.username}</strong> ${c.text}`;
+        commentViews.appendChild(p);
+      });
+
+      commentInput.value = "";
+      commentBtn.style.display = "none";
+      commentBtn.disabled = true;
+    } catch (err) {
+      console.error(err);
+      showNotification("Error adding comment!", "error");
+    }
+  }
+});
+
+// ============ INITIALIZE ============
+document.addEventListener("DOMContentLoaded", getPosts);
+
+</script>
 
 </body>
 </html>
