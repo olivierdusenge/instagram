@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
         showMessage("✅ Login successful! Redirecting...", "success");
 
         setTimeout(() => {
-          window.location.href = "../inst-blog/index.html";
+          window.location.href = "../index.html";
         }, 1500);
       } else {
         showMessage("❌ Invalid email or password!", "error");
